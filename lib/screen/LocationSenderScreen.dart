@@ -16,7 +16,7 @@ class _LocationSharingScreenState extends State<LocationSharingScreen> {
   @override
   void initState() {
     super.initState();
-    // ऐप शुरू होते ही automatically permission check करें
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<LocationBloc>().add(CheckLocationPermission());
     });
@@ -129,6 +129,7 @@ class _LocationSharingScreenState extends State<LocationSharingScreen> {
             }
 
             // Sharing in progress
+            // Sharing in progress
             if (state is LocationSharingInProgress) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -141,8 +142,7 @@ class _LocationSharingScreenState extends State<LocationSharingScreen> {
                   const SizedBox(height: 20),
                   Text(
                     state.isSharing ? 'Sharing Location' : 'Sharing Stopped',
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 10),
                   Text(
@@ -161,26 +161,16 @@ class _LocationSharingScreenState extends State<LocationSharingScreen> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                      state.isSharing ? Colors.red : Colors.green,
+                      backgroundColor: state.isSharing ? Colors.red : Colors.green,
                       foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 15),
+                      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                     ),
                     child: Text(state.isSharing ? "Stop Sharing" : "Start Sharing"),
                   ),
-                  if (state.isSharing) ...[
-                    const SizedBox(height: 20),
-                    const CircularProgressIndicator(),
-                    const SizedBox(height: 10),
-                    const Text(
-                      'Sharing in progress...',
-                      style: TextStyle(fontSize: 14, color: Colors.grey),
-                    ),
-                  ],
                 ],
               );
             }
+
 
             // Error state
             if (state is LocationSharingError) {

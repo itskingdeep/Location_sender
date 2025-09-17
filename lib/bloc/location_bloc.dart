@@ -90,15 +90,16 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
           permission == LocationPermission.deniedForever) {
         emit(LocationPermissionDenied());
       } else {
+        // ✅ Sirf permission granted state bhejna hai
         emit(LocationPermissionGranted());
-        if (!_isSharing) {
-          add(StartLocationSharing());
-        }
+
+
       }
     } catch (e) {
       emit(LocationSharingError(message: 'Permission check failed: $e'));
     }
   }
+
 
   void _onUpdateServiceState(
       UpdateServiceState event,
