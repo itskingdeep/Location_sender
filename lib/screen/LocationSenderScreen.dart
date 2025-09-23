@@ -16,7 +16,7 @@ class _LocationSharingScreenState extends State<LocationSharingScreen> {
   @override
   void initState() {
     super.initState();
-    // ऐप शुरू होते ही automatically permission check करें
+    
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<LocationBloc>().add(CheckLocationPermission());
     });
