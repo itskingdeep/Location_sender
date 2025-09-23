@@ -69,7 +69,7 @@ class _LocationSharingScreenState extends State<LocationSharingScreen> {
                   const SizedBox(height: 30),
                   ElevatedButton(
                     onPressed: () {
-                      // App settings में open करें
+                     
                       openAppSettings();
                     },
                     style: ElevatedButton.styleFrom(
