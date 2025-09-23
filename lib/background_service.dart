@@ -109,7 +109,7 @@ Future<void> onStart(ServiceInstance service) async {
 
       print("Background Location: ${pos.latitude}, ${pos.longitude}");
 
-      // Replace with your Firebase Realtime DB REST API URL
+     
       const firebaseUrl =
           "https://fir-connection-fd0c1-default-rtdb.firebaseio.com/user_location/user1.json";
 
